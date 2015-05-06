@@ -4,11 +4,11 @@
 pushd %~dp0
 
 :: clear results
-call jacoco-custom-library\00_Clean.cmd
-call jacoco-junit-tests\00_Clean.cmd
-call jacoco-black-box-tests\00_Clean.cmd
-call jacoco-result-aggregation\00_Clean.cmd
-call jacoco-result-aggregation-library\00_Clean.cmd
+call jacoco-aggregation-application\00_Clean.cmd
+call jacoco-aggregation-library\00_Clean.cmd
+call jacoco-application\00_Clean.cmd
+call jacoco-library\00_Clean.cmd
+call jacoco-test\00_Clean.cmd
 
 :: restore directory
 popd
