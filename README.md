@@ -18,8 +18,8 @@ The results are then aggregated into additional projects to show an overall cove
 
 ## Usage
 
-1. Download SonarQube from 'http://www.sonarqube.org/downloads/' and extract it into a directory of your choice
-2. Start SonarQube (i.e. on Windows 64-bit '<ROOT>\bin\windows-x86-64\StartSonar.bat')
-3. Check if SonarQube is working (with your favorite browser open 'http://localhost:9000')
+1. Download SonarQube from http://www.sonarqube.org/downloads/ and extract it into a directory of your choice
+2. Start SonarQube (i.e. on Windows 64-bit ```<ROOT>\bin\windows-x86-64\StartSonar.bat```)
+3. Check if SonarQube is working (with your favorite browser open [http://localhost:9000](http://localhost:9000))
 4. Adapt ```JAVA_HOME``` and ```MAVEN_HOME``` variables in ```01_Environment.cmd``` to your working environment
 5. Start ```10_Build.cmd```
