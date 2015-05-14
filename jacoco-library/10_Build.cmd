@@ -4,8 +4,8 @@
 pushd %~dp0
 
 :: set environment
-call 00_Clean.cmd
-call ..\01_Environment.cmd
+::call 00_Clean.cmd
+::call ..\01_Environment.cmd
 
 :: start build
 call mvn clean verify install

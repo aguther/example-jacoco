@@ -4,8 +4,8 @@
 pushd %~dp0
 
 :: environment
-call 00_Clean.cmd
-call ..\01_Environment.cmd
+::call 00_Clean.cmd
+::call ..\01_Environment.cmd
 
 :: download artifact
 call mvn org.apache.maven.plugins:maven-dependency-plugin:2.8:copy -Dartifact=com.company:jacoco-example:1.0-SNAPSHOT -DoutputDirectory=target -Dmdep.useBaseVersion=true
