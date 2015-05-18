@@ -39,6 +39,6 @@ public class MainTest extends TestCase {
         //com.company.Main.main(new String[]{});
         com.company.Main.main(new String[]{"One"});
         com.company.Main.main(new String[]{"One", "Two"});
-        com.company.Main.main(new String[]{"One", "Two", "Three"});
+        //com.company.Main.main(new String[]{"One", "Two", "Three"});
     }
 }
