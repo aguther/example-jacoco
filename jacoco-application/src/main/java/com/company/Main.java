@@ -7,8 +7,17 @@ import java.util.logging.Logger;
  */
 public class Main {
 
-    // Logger for the application
+    /** Logger for the application. */
     private static final Logger LOG = Logger.getLogger(Main.class.getName());
+
+    /** Zero arguments number. */
+    private static final int CONSTANT_ZERO_ARGUMENTS = 0;
+
+    /** One arguments number. */
+    private static final int CONSTANT_ONE_ARGUMENT = 1;
+
+    /** Two arguments number. */
+    private static final int CONSTANT_TWO_ARGUMENTS = 2;
 
     /**
      * Private constructor.
@@ -30,7 +39,7 @@ public class Main {
         StringBuilder resultInfo = new StringBuilder();
 
         // decide on number of arguments
-        if (args.length == 0) {
+        if (args.length == CONSTANT_ZERO_ARGUMENTS) {
 
             // execute library function
             library.functionZero();
@@ -38,7 +47,7 @@ public class Main {
             // create result information
             resultInfo.append("Zero parameters provided ");
 
-        } else if (args.length == 1) {
+        } else if (args.length == CONSTANT_ONE_ARGUMENT) {
 
             // get result from library for one parameter
             boolean result = library.functionOne(args[0]);
@@ -47,7 +56,7 @@ public class Main {
             resultInfo.append("One parameter provided: ");
             resultInfo.append(String.format("%s|%s", args[0], result));
 
-        } else if (args.length == 2) {
+        } else if (args.length == CONSTANT_TWO_ARGUMENTS) {
 
             // get result from library for one parameter
             boolean result = library.functionTwo(args[0], args[1]);
