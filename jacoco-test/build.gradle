@@ -1,0 +1,12 @@
+/*
+
+TASKS TO DO:
+
+1.	download artifacts
+	- application
+	- library
+2.	execute black box tests incl. jacoco coverage
+3.	install produced artifacts to repository:
+	- jacoco coverage
+
+*/

@@ -1,0 +1,119 @@
+// ============================================================================
+// default plugins
+// ============================================================================
+
+// plugins for IDE support
+apply plugin: 'eclipse'
+apply plugin: 'idea'
+
+
+// ============================================================================
+// repositories
+// ============================================================================
+
+// needed plugin to publish ---------------------------------------------------
+apply plugin: 'maven-publish'
+
+// for dependencies -----------------------------------------------------------
+repositories {
+	mavenLocal()
+    mavenCentral()
+}
+
+// for publishing -------------------------------------------------------------
+publishing {
+    repositories {
+    	mavenLocal()
+    }
+}
+
+
+// ============================================================================
+// java configuration
+// ============================================================================
+
+// apply plugin ---------------------------------------------------------------
+apply plugin: 'java'
+
+// compiler configuration -----------------------------------------------------
+sourceCompatibility = 1.7
+targetCompatibility = 1.7
+
+// pack source code -----------------------------------------------------------
+task sourceJar(type: Jar) {
+    from sourceSets.main.allJava
+}
+
+publishing {
+    publications {
+        mavenJava(MavenPublication) {
+            from components.java
+
+            artifact sourceJar {
+                classifier "sources"
+            }
+        }
+    }
+}
+
+// common dependencies --------------------------------------------------------
+dependencies {
+    testCompile group: 'junit', name: 'junit', version:'4.+'
+}
+
+
+// ============================================================================
+// jacoco configuration
+// ============================================================================
+
+// enable plugin --------------------------------------------------------------
+apply plugin: 'jacoco'
+
+// set version ----------------------------------------------------------------
+jacoco {
+    toolVersion = "0.7.4.201502262128"
+}
+
+// enable usage on test -------------------------------------------------------
+test {
+    jacoco {
+        append = false
+        destinationFile = file("$buildDir/test-results/binary/jacoco/jacoco.exec")
+    }
+}
+
+// pack jacoco result ---------------------------------------------------------
+publishing {
+    publications {
+    	jacocoResult(MavenPublication) {
+			artifact(test.jacoco.destinationFile) {
+		        classifier "jacoco"
+		        extension "exec"
+	        }
+    	}
+    }
+}
+
+// define task to generate coverage report ------------------------------------
+jacocoTestReport {
+    reports {
+        xml.enabled false
+        csv.enabled false
+        html.destination "${buildDir}/reports/coverage"
+    }
+}
+
+// enable automatic test report generation by build task ----------------------
+build.dependsOn(jacocoTestReport)
+
+// ============================================================================
+// sonar configuration
+// ============================================================================
+
+// enable plugin --------------------------------------------------------------
+apply plugin: "sonar-runner"
+
+// set version ----------------------------------------------------------------
+sonarRunner {
+    toolVersion = '2.4'
+}

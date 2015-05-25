@@ -1,5 +1,7 @@
+build/
 target/
 .settings/
+.gradle/
 .project
 .classpath
 pom.xml.tag

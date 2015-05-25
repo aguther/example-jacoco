@@ -1,0 +1,15 @@
+/*
+
+TASKS TO DO:
+
+1.	define artifact (group, artifactId, version)
+2.	download
+	- application binaries
+	- application sources
+	- jacoco results
+3.	extract
+	- binaries
+	- sources
+4.	execute sonar analysis
+
+*/

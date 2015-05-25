@@ -1,0 +1,22 @@
+/*
+
+TASKS TO DO:
+
+1.	define artifact (group, artifactId, version)
+4.	pack sources
+5.	pack jacoco result
+6.	install produced artifacts to repository:
+	- library binaries
+	- library sources
+	- jacoco coverage
+7.	execute sonar analysis
+
+*/
+
+// common settings ------------------------------------------------------------
+apply from: '../common.gradle'
+
+
+// define group and version ---------------------------------------------------
+group = 'com.company'
+version = '1.0-SNAPSHOT'
